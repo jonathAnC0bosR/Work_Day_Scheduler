@@ -47,7 +47,7 @@ $(function () {
         console.log(hourNumber);
         if(hourNumber - todayNumber > 0 ) {
             divId.addClass('future');
-        } else if (hourNumber - todayNumber === 0) {
+        } else if (hourNumber === todayNumber ) {
             divId.addClass('present');
         } else {
             divId.addClass('past');
