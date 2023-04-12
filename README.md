@@ -1,2 +1,2 @@
-# Work_Day_Scheduler
+# Work Day Scheduler
 Work Day Scheduler
