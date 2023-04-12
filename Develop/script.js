@@ -40,7 +40,7 @@ $(function () {
     })
     console.log(ids);
 
-    for(var i = 0; i <= 4; i++) {
+    for(var i = 0; i <= ids.length; i++) {
         var todayNumber = parseInt(dayjs().format('H'));
         console.log(todayNumber);
         var hourNumber = parseInt(ids[i]);
