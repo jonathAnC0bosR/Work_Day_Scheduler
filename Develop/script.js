@@ -33,24 +33,29 @@ $(function () {
     var ids = [];
     var number;
     var divId = $('div[id^="hour-"]');
+    console.log(divId[0])
     divId.each(function() {
         var id = $(this).attr('id');
         number = id.split('-')[1];
         ids.push(number);
     })
     console.log(ids);
+    console.log(divId);
+   
+
 
     for(var i = 0; i <= ids.length; i++) {
         var todayNumber = parseInt(dayjs().format('H'));
         console.log(todayNumber);
+        console.log($(divId[0]));
         var hourNumber = parseInt(ids[i]);
         console.log(hourNumber);
         if(hourNumber - todayNumber > 0 ) {
-            divId.addClass('future');
+            $(divId[i]).addClass('future');
         } else if (hourNumber === todayNumber ) {
-            divId.addClass('present');
+            $(divId[i]).addClass('present');
         } else {
-            divId.addClass('past');
+            $(divId[i]).addClass('past');
         }
 
     }
