@@ -3,8 +3,9 @@
 // in the html.
 var currentDay = $('#currentDay');
 var currentHour = $('#currentHour');
-var saveBtnEl = $('button');
+var saveBtnEl = $('.saveBtn');
 var descriptionEl = $('textarea');
+var clearBtnEl = $('.clearBtn');
 
 
 $(function () {
@@ -22,6 +23,14 @@ $(function () {
         var eventDescription = parentDiv.find('textarea').val();
         localStorage.setItem('hour-' + hour, eventDescription);
         console.log(eventDescription);
+    })
+
+    // Code to clear storage and empty all textareas
+
+    clearBtnEl.on('click', function(event) {
+        event.preventDefault();
+        localStorage.clear('hour-');
+        descriptionEl.val('');
     })
     
 
@@ -74,7 +83,11 @@ $(function () {
             }
         }
     
-      
+    
+
+
+
+
 
 
     // TODO: Add code to display the current date in the header of the page.
