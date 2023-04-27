@@ -22,7 +22,6 @@ $(function () {
         var hour = parentDiv.attr('id').split('-')[1];
         var eventDescription = parentDiv.find('textarea').val();
         localStorage.setItem('hour-' + hour, eventDescription);
-        console.log(eventDescription);
     })
 
     // Code to clear storage and empty all textareas
@@ -42,23 +41,18 @@ $(function () {
     var ids = [];
     var number;
     var divId = $('div[id^="hour-"]');
-    console.log(divId[0])
     divId.each(function() {
         var id = $(this).attr('id');
         number = id.split('-')[1];
         ids.push(number);
     })
-    console.log(ids);
-    console.log(divId);
+    
    
 
 
     for(var i = 0; i <= ids.length; i++) {
         var todayNumber = parseInt(dayjs().format('H'));
-        console.log(todayNumber);
-        console.log($(divId[0]));
         var hourNumber = parseInt(ids[i]);
-        console.log(hourNumber);
         if(hourNumber - todayNumber > 0 ) {
             $(divId[i]).addClass('future');
         } else if (hourNumber === todayNumber ) {
@@ -77,7 +71,6 @@ $(function () {
         for (var i = 9; i <= 17; i++) {
             var key = 'hour-' + i;
             var eventDescription = localStorage.getItem(key);
-            console.log(eventDescription);
             if(eventDescription){
                 $('#hour-' + i + ' textarea').val(eventDescription);
             }
@@ -92,8 +85,6 @@ $(function () {
 
     // TODO: Add code to display the current date in the header of the page.
     var today = dayjs();
-    console.log(typeof(parseInt(today.format('H'))));
-    console.log(typeof(ids[0]))
     currentDay.text(today.format('MMMM D, YYYY'));
     currentHour.text(today.format('HH:mm:ss'));
   });
